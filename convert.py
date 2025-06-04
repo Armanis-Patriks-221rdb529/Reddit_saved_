@@ -10,11 +10,11 @@ folder_path = os.getcwd() + '\saved_images'
 
 try:
     os.mkdir(folder_path)
-    print(f"Directory '{folder_path}' created successfully.")
+    print(f"Izveidots folderis norādītajā ceļā: '{folder_path}'")
 except FileExistsError:
-    print(f"Directory '{folder_path}' already exists.")
+    print(f"Folderis '{folder_path}' jau izveidots")
 except PermissionError:
-    print(f"Permission denied: Unable to create '{folder_path}'.")
+    print(f"Nevarēja izveidot folderi ceļā: '{folder_path}' nav atļaujas")
 except Exception as e:
     print(f"An error occurred: {e}")
 
@@ -32,7 +32,7 @@ def download(url, folder_path):
 
         parsed_url = urlparse(url)
         filename = os.path.basename(parsed_url.path)
-
+        
         if not filename or '.' not in filename:
             content_type = response.headers.get('Content-Type', '')
             ext = {
@@ -43,7 +43,7 @@ def download(url, folder_path):
                 'image/webp': '.webp',
             }.get(content_type, '')
             filename = f'image_{ext}'
-
+        
         file_path = os.path.join(folder_path, filename)
 
         # Save
@@ -51,11 +51,8 @@ def download(url, folder_path):
             for chunk in response.iter_content(1024):
                 out_file.write(chunk)
 
-        print(f"Downloaded: {filename}")
+        print(f"Instalēts: {filename}")
 
     except Exception as e:
-        print(f"Failed to download {url}: {e}")
-
-
-
-
+        print(f"Nevarēja instalēt {url}: {e}")
+        

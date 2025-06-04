@@ -22,7 +22,8 @@ def fethcdata():
                 for i in url_array:
                     if any(s in i for s in ('.png', '.jpg', '.jpeg', '.webp')):
                         f.write(i + "\n")
-                    elif any(p in i for p in ('gallery', '.it')):
+                    elif any(p in i for p in ('gallery', 'v.redd')):
                         g.write(i + "\n")
                     else:
                         a.write(i + "\n")
+                    
