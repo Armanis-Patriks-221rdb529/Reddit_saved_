@@ -1,0 +1,5 @@
+CLIENT_ID = ''
+SECRET = ''
+AGENT = ''
+USERNAME = ''                      
+PASSWORD = ''
